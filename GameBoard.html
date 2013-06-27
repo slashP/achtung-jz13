@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Gameboard</title>
+        <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width" />
+        <script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+        <link href="Content/style.css" rel="stylesheet" />
+        <link href="Content/bootstrap.min.css" rel="stylesheet" />
+        <script src="Scripts/easeljs-0.6.0.min.js"></script>
+        <script src="Scripts/bootstrap.min.js"></script>
+        <script src="Scripts/Logo.js"></script>
+    </head>
+    <body onload="init();">
+        <canvas id="demoCanvas" width="200" height="70"></canvas>
+        <h1 style="display: inline-block; vertical-align: top; margin-top: 17px;">CIBERACHTUNG.JIT.SU</h1>
+        <div id="rightColumn">
+            <div id="directionLabel">
+                <h4>THIS ROUND</h4><br />
+                <table id="lastRoundTable" data-bind="foreach: lastRoundScores">
+                    <tr data-bind="style: { color: playerColor }">
+                        <td class="highscoreName" data-bind="text: name"></td>
+                        <td data-bind="text: score"></td>
+                    </tr>
+                </table>
+            </div>
+            <div id="highscore-window">
+                <div class="tabbable"> <!-- Only required for left/right tabs -->
+                    <ul class="customTabs nav nav-tabs">
+                        <li class="active"><a href="#tab1" data-toggle="tab">HIGHSCORE TODAY</a></li>
+                        <li><a href="#tab2" data-toggle="tab">HIGHSCORE TOTAL</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tab1">
+                            <table class="highscoresTable" data-bind="foreach: highscoresToday">
+                                <tr>
+                                    <td data-bind="attr: { 'class': IsRegistered ? '' : 'unregisteredUser' }">✔</td>
+                                    <td class="highscoreName" data-bind="text: Name, attr: { title: Phone }"></td>
+                                    <td data-bind="text: Score"></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="tab-pane" id="tab2">
+                            <table class="highscoresTable" data-bind="foreach: highscoresTotal">
+                                <tr>
+                                    <td data-bind="attr: { 'class': IsRegistered ? '' : 'unregisteredUser' }">✔</td>
+                                    <td class="highscoreName" data-bind="text: Name, attr: { title: Phone }"></td>
+                                    <td data-bind="text: Score"></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="leftColumn">
+            <canvas id="gameCanvas" class="gameBoard"></canvas>
+        </div>
+
+        <script src="GameScripts/colormanager.js"></script>
+        <script src="GameScripts/config.js"></script>
+        <script src="GameScripts/engine.js"></script>
+        <script src="GameScripts/game.js"></script>
+        <script src="GameScripts/jquery.js"></script>
+        <script src="GameScripts/player.js"></script>
+        <script src="GameScripts/playermanager.js"></script>
+        <script src="GameScripts/utilities.js"></script>
+        <script src="Scripts/socket.io.min.js"></script>
+        <script src="Scripts/GameBoard.js"></script>
+        <script src="Scripts/knockout.js"></script>
+        <script src="Scripts/knockout.mapping-latest.js"></script>
+    </body>
+</html>

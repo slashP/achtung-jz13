@@ -1,0 +1,39 @@
+body {
+    background-color: #ddd; /* Background color */
+    color: #222;            /* Foreground color used for text */
+    font-family: Helvetica; 
+    font-size: 14px;
+    margin: 0;              /* Amount of negative space around the outside of the body */
+    padding: 0;             /* Amount of negative space around the inside of the body */
+    orient: "profile";
+}
+
+input.button{
+    background-color: #f00;
+    -webkit-user-select: none;
+}
+
+#left, #right{
+    background-color: #f00;
+    -webkit-user-select: none;
+}
+
+#header h1 {
+    margin: 0;
+    padding: 0;
+}
+#header h1 a {
+    background-color: #ccc;
+    border-bottom: 1px solid #666;
+    color: #222;
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px 0;
+    text-align: center;
+    text-decoration: none;
+}
+
+.playButton {
+    margin-left: 30px;
+}

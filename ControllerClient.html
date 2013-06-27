@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
+        <title>Controller</title>
+        <link href="Content/bootstrap.min.css" rel="stylesheet" />
+        <link href="Content/ControllerClient.css" rel="stylesheet" />
+        <link rel="stylesheet" type="text/css" href="Content/phone.css" media="only screen and (max-width: 480px)" />
+        
+        <script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+
+    </head>
+    <body>
+        <div id="container">
+            <!-- Button to trigger modal -->
+            <div id="overlay" class="userInformation">
+                <span class="usernameAndScore">
+                    <span data-bind="text: userName"></span>
+                    <br />
+                    <span>
+                        <img src="Content/images/glyphicons_040_stats.png" style="height: 18px;" alt="statistics" />
+                        &nbsp;<span class="label label-inverse" data-bind="text: score"></span>
+                    </span>
+                    <br />
+                </span>
+                <br />
+                <a href="#regUserModal" role="button" data-toggle="modal" data-bind="attr: { 'class': isRegistered }, text: isRegisteredText">Edit info</a>
+                <a href="#" role="button" data-toggle="modal" class="btn btn-danger" data-bind="click: leavePage">Leave</a>
+            </div>
+            <canvas id="controllers" width="320" height="240"></canvas>
+        </div>
+
+        <!-- Modal -->
+        <div id="regUserModal" class="modal hide fade phone-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabel">Register name and phone number</h3>
+          </div>
+          <div class="modal-body">
+            <input id="inputRegName" type="text" placeholder="Visningsnavn" maxlength="24" data-bind="value: userName" /><br />
+            <input id="inputRegNumber" type="tel" placeholder="Telefonnummer" maxlength="12" data-bind="value: phone" />
+          </div>
+          <div class="modal-footer">
+            <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+              <button class="btn btn-primary" id="submitRegNameBtn">Register user</button>
+          </div>
+        </div>
+
+
+        <script src="Scripts/knockout.js"></script>
+        <script src="Scripts/socket.io.min.js"></script>
+        <script src="Scripts/ControllerClient.js"></script>
+        <script src="Scripts/bootstrap.min.js"></script>
+    </body>
+</html>

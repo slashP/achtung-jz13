@@ -1,0 +1,16 @@
+{
+  "name": "ciberachtung",
+  "subdomain": "ciberachtung",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "version": "0.0.0-11",
+  "engines": {
+    "node": "0.8.x"
+  },
+  "dependencies": {
+    "socket.io": "0.9.16",
+    "express": "3.3.0",
+    "html": "0.0.7"
+  }
+}
