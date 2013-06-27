@@ -1,6 +1,6 @@
 {
-  "name": "ciberachtung",
-  "subdomain": "ciberachtung",
+  "name": "Achtung-JZ13",
+  "subdomain": "achtung",
   "scripts": {
     "start": "node app.js"
   },
