@@ -1,17 +1,17 @@
 (function () {
-    var express = require('express');
-    var app = express();
-    var fs = require("fs");
-    var server = require('http').Server(app);
-    app.use(express.static(__dirname + ''));
+    "use strict";
+    var express = require('express'),
+        app = express(),
+        server = require('http').Server(app),
+        io = require('socket.io').listen(server),
+        players = {},
+        gameBoard;
+    app.use(express.static(__dirname));
     app.get('/', function (req, res) {
         res.render('index.html');
     });
-    var io = require('socket.io').listen(server);
     server.listen(80);
     io.set('log level', 1);
-    var players = {};
-    var gameBoard = undefined;
     io.sockets.on('connection', function (socket) {
         var emitToGameBoard = function (eventName, arg1, arg2, arg3) {
             if (gameBoard) {
@@ -40,4 +40,4 @@
             emitToGameBoard("changeName", socket.id, newName);
         });
     });
-})();
+}());
