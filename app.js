@@ -40,7 +40,7 @@
         });
         socket.on("joinAsGameBoard", function () {
             if (gameBoard !== undefined) {
-                socket.broadcast.emit("status", "Board changed - you must refresh to join again.");
+                socket.broadcast.emit("status", "Board changed - you must refresh to rejoin");
                 socket.broadcast.emit("changeColor", "white");
             }
             gameBoard = socket;
