@@ -137,6 +137,9 @@ $(function () {
     socket.on("changeColor", function(color) {
         $("#controllers").css("background-color", color);
     });
+    socket.on("status", function (status) {
+        userViewModel.connectionStatus(status);
+    });
 
     //Prøvar med tastatur også:
     var down = false;
@@ -181,6 +184,7 @@ $(function () {
         this.userName = ko.observable(name);
         this.phone = ko.observable(phone);
         this.score = ko.observable(0);
+        this.connectionStatus = ko.observable("");
         this.isRegistered = ko.computed(function() {
             var length = self.phone() ? self.phone().length : 0;
             return length === 0 ? "btn btn-primary" : "btn btn-success";
