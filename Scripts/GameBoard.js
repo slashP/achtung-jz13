@@ -2,7 +2,7 @@
     var socket = io.connect('/');
     socket.emit("joinAsGameBoard");
 	$("#displayUrl").text(document.domain.toUpperCase());
-    var w = $("#leftColumn").innerWidth(),
+	var w = $("#leftColumn").innerWidth(),
         h = $("#leftColumn").innerHeight(),
         countDownInterval,
         isInCountDownMode = false,
@@ -17,11 +17,11 @@
             }
         },
         processCurrentDirectionsInterval,
-        startCurrentDirectionsProcess = function() {
+        startCurrentDirectionsProcess = function () {
             clearInterval(processCurrentDirectionsInterval);
             processCurrentDirectionsInterval = setInterval(processCurrentDirections, 1000 / numberOfDirectionProcessesPerSecond);
         },
-        handleCollision = function(playerId) {
+        handleCollision = function (playerId) {
             var player = playerManager.getPlayerByID(playerId);
             var position = playerManager.numberOfPlayersAlive() + 1;
             var numberOfPlayers = playerManager.numberOfPlayersPlaying();
@@ -43,24 +43,24 @@
                 }, 2000);
             }
         },
-        updateScore = function(player, position, numberOfPlayers) {
-            $.post("http://achtung-node.apphb.com/api/score", { Position: position, PlayerId: player.serverId, SnakeLength: player.distance, NumberOfPlayers: numberOfPlayers }, function() {
+        updateScore = function (player, position, numberOfPlayers) {
+            $.post("http://achtung-node.apphb.com/api/score", { Position: position, PlayerId: player.serverId, SnakeLength: player.distance, NumberOfPlayers: numberOfPlayers }, function () {
 
             });
             updatePlayerLastRound(player, position, numberOfPlayers);
         },
-        skrivICanvas = function(text) {
+        skrivICanvas = function (text) {
             drawingContext.font = "bold 50pt Calibri";
             drawingContext.textAlign = 'center';
             drawingContext.fillStyle = "rgb(255, 246, 36)";
             drawingContext.fillText(text, w / 2, h / 2);
         },
-        clearCanvasText = function() {
+        clearCanvasText = function () {
             var canvas = document.getElementById("gameCanvas");
             var cy = canvas.height / 2;
-            drawingContext.clearRect(10, cy - 70, canvas.width-20, 85);
+            drawingContext.clearRect(10, cy - 70, canvas.width - 20, 85);
         },
-        countDown = function() {
+        countDown = function () {
             var time = Config.waitBetweenGames + 1;
             countDownInterval = setInterval(function () {
                 clearCanvasText();
@@ -73,7 +73,7 @@
                 }
             }, 1000);
         },
-        removeInactivePlayers = function() {
+        removeInactivePlayers = function () {
             var connectionIds = game.removeInactivePlayersAndGetConnectionIds();
             for (var i = 0; i < connectionIds.length; i++) {
                 socket.emit("notifyplayer", connectionIds[i], "white");
