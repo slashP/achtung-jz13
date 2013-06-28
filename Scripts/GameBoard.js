@@ -1,13 +1,4 @@
-﻿/// <reference path="jquery-1.8.3.intellisense.js" />
-/// <reference path="jquery.signalR-1.0.0-rc1.js" />
-/// <reference path="knockout-2.2.1.debug.js" />
-/// <reference path="~/Scripts/knockout.mapping-latest.debug.js" />
-/*global Game:false */
-/*global Config:false */
-/*global ko:false */
-/*global $:false */
-
-$(function () {
+﻿$(function () {
     var socket = io.connect('/');
     socket.emit("joinAsGameBoard");
 	$("#displayUrl").text(document.domain.toUpperCase());

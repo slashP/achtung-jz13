@@ -1,12 +1,4 @@
-﻿/// <reference path="jquery-1.8.3.intellisense.js" />
-/// <reference path="jquery.signalR-1.0.0-rc1.js" />
-/// <reference path="knockout.debug.js" />
-/// <reference path="~/Scripts/knockout.js" />
-/// <reference path="~/Scripts/knockout-2.2.1.debug.js" />
-/*global $:false */
-/*global ko:false */
-
-$(function () {
+﻿$(function () {
     var socket = io.connect('/');
     function setupProportionalCanvas() {
         var $container = $("#container"), $canvas = $("#controllers"),
