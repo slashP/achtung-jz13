@@ -229,7 +229,6 @@ $(function () {
     function setUserAndJoin(user) {
         updateUserName(user);
 		var serverId = getUserId();
-		console.log("server id is ", serverId);
         socket.emit("join", getUserName(), serverId);
         fetchUserInfo();
     }
