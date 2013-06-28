@@ -22,6 +22,7 @@
         emitToGameBoard("connected", socket.id);
         socket.on("disconnect", function () {
             emitToGameBoard("disconnected", socket.id);
+            delete players[socket.id];
         });
         socket.on("moveSnake", function (direction) {
             emitToGameBoard("moved", socket.id, direction);
@@ -34,7 +35,9 @@
         });
         socket.on("notifyplayer", function (id, color) {
             var socket = players[id];
-            socket.emit("changeColor", color);
+            if (socket) {
+                socket.emit("changeColor", color);
+            }
         });
         socket.on("changeName", function (newName) {
             emitToGameBoard("changeName", socket.id, newName);
