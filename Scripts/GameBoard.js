@@ -10,6 +10,7 @@
 $(function () {
     var socket = io.connect('/');
     socket.emit("joinAsGameBoard");
+	$("#displayUrl").text(document.domain);
     var w = $("#leftColumn").innerWidth(),
         h = $("#leftColumn").innerHeight(),
         countDownInterval,
