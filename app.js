@@ -7,9 +7,6 @@
         players = {},
         gameBoard;
     app.use(express.static(__dirname));
-    app.get('/', function (req, res) {
-        res.render('index.html');
-    });
     server.listen(80);
     io.set('log level', 1);
     io.sockets.on('connection', function (socket) {
