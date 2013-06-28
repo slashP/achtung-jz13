@@ -117,8 +117,8 @@
 
   function loop() {
     ctx.clearRect(0,0,$canvas.width(),$canvas.height());
-    for(var i=0,len=keys.length;i<len;i++) {  
-      if(keys[i]) { drawButton(i); } 
+    for (var i = 0, len = keys.length; i < len; i++) {
+        if (keys[i]) { drawButton(i); }
     }
 
     window.requestAnimationFrame ?  window.requestAnimationFrame(loop) : setTimeout(loop,1000/60);
