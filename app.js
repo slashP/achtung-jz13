@@ -24,6 +24,8 @@
             delete players[socket.id];
             if (gameBoard && gameBoard.id === socket.id) {
                 gameBoard = undefined;
+				socket.broadcast.emit("status", "No board connected");
+				socket.broadcast.emit("changeColor", "white");
             }
         });
         socket.on("moveSnake", function (direction) {
